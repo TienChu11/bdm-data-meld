@@ -138,24 +138,27 @@ for listIndex in range(len(urls)):
   driver.get(recordingItemUrl)
   time.sleep(waitForPageLoadSeconds)
 
-  transcriptElementSelector = '.transcript__list'
-  transcriptElement = driver.find_element(By.CSS_SELECTOR, f'{transcriptElementSelector}')
+  try:
+    transcriptElementSelector = '.transcript__list'
+    transcriptElement = driver.find_element(By.CSS_SELECTOR, f'{transcriptElementSelector}')
 
-  driver.execute_script("arguments[0].style.overflow = 'visible';", transcriptElement)
-  driver.execute_script("arguments[0].style['max-height'] = '10000px';", transcriptElement)
+    driver.execute_script("arguments[0].style.overflow = 'visible';", transcriptElement)
+    driver.execute_script("arguments[0].style['max-height'] = '10000px';", transcriptElement)
 
-  transcriptItemsElements = transcriptElement.find_elements(By.CSS_SELECTOR, 'div')
-
-  print(transcriptItemsElements, ' ' , len(transcriptItemsElements))
-  minimumTranscriptItemsLength = 10
-
-  while (len(transcriptItemsElements) < minimumTranscriptItemsLength):
-    time.sleep(1)
     transcriptItemsElements = transcriptElement.find_elements(By.CSS_SELECTOR, 'div')
 
-  transcriptItemsElements = transcriptElement.find_elements(By.CSS_SELECTOR, 'div')
+    print(transcriptItemsElements, ' ' , len(transcriptItemsElements))
+    minimumTranscriptItemsLength = 10
 
-  transcriptElement.screenshot('transcript.png')
+    while (len(transcriptItemsElements) < minimumTranscriptItemsLength):
+      time.sleep(1)
+      transcriptItemsElements = transcriptElement.find_elements(By.CSS_SELECTOR, 'div')
+
+    transcriptItemsElements = transcriptElement.find_elements(By.CSS_SELECTOR, 'div')
+
+    transcriptElement.screenshot('transcript.png')
+  except Exception as e:
+    print(f"An unexpected error occurred: {e}")
 
   # ===
 
@@ -164,25 +167,33 @@ for listIndex in range(len(urls)):
   driver.get(intonationUrl)
   time.sleep(waitForPageLoadSeconds)
 
-  pitchChartApexChartCanvasElement = driver.find_element(By.CSS_SELECTOR, 'div[id^="apexchart"]')
-  chartCanvasWidth = int(pitchChartApexChartCanvasElement.size['width'])
-  print(chartCanvasWidth)
+  try:
+    pitchChartApexChartCanvasElement = driver.find_element(By.CSS_SELECTOR, 'div[id^="apexchart"]')
+    chartCanvasWidth = int(pitchChartApexChartCanvasElement.size['width'])
+    print(chartCanvasWidth)
 
-  chartWidth = (chartCanvasWidth * 2) + 500
-  
-  pitchChartElement = driver.find_element(By.CSS_SELECTOR, '.pitch-chart__chart')
+    chartWidth = (chartCanvasWidth * 2) + 500
+    
+    pitchChartElement = driver.find_element(By.CSS_SELECTOR, '.pitch-chart__chart')
 
-  driver.execute_script(f"arguments[0].style['width'] = '{chartWidth}px';", pitchChartElement)
+    driver.execute_script(f"arguments[0].style['width'] = '{chartWidth}px';", pitchChartElement)
 
-  pitchChartElement.screenshot('pitchchart.png')
+    pitchChartElement.screenshot('pitchchart.png')
+  except Exception as e:
+      print(f"An unexpected error occurred: {e}")
 
-  intonationTranscriptListElementSelector = '.transcript__list'
-  intonationTranscriptListElement = driver.find_element(By.CSS_SELECTOR, intonationTranscriptListElementSelector)
 
-  driver.execute_script("arguments[0].style.overflow = 'visible';", intonationTranscriptListElement)
-  driver.execute_script("arguments[0].style['max-height'] = '10000px';", intonationTranscriptListElement)
+  try:
+    intonationTranscriptListElementSelector = '.transcript__list'
+    intonationTranscriptListElement = driver.find_element(By.CSS_SELECTOR, intonationTranscriptListElementSelector)
 
-  intonationTranscriptListElement.screenshot('intonation-transcript.png')
+    driver.execute_script("arguments[0].style.overflow = 'visible';", intonationTranscriptListElement)
+    driver.execute_script("arguments[0].style['max-height'] = '10000px';", intonationTranscriptListElement)
+
+    intonationTranscriptListElement.screenshot('intonation-transcript.png')
+  except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+
 
   # ===
 
@@ -191,16 +202,20 @@ for listIndex in range(len(urls)):
   driver.get(fluencyPageUrl)
   time.sleep(waitForPageLoadSeconds)
 
-  paceChartApexChartCanvasElement = driver.find_element(By.CSS_SELECTOR, 'div[id^="apexchart"]')
-  chartCanvasWidth = int(paceChartApexChartCanvasElement.size['width'])
-  print(chartCanvasWidth)
-  chartWidth = (chartCanvasWidth * 2) + 500
 
-  paceChartElement = driver.find_element(By.CSS_SELECTOR, '.line-chart__chart')
+  try:
+    paceChartApexChartCanvasElement = driver.find_element(By.CSS_SELECTOR, 'div[id^="apexchart"]')
+    chartCanvasWidth = int(paceChartApexChartCanvasElement.size['width'])
+    print(chartCanvasWidth)
+    chartWidth = (chartCanvasWidth * 2) + 500
 
-  driver.execute_script(f"arguments[0].style['width'] = '{chartWidth}px';", paceChartElement)
+    paceChartElement = driver.find_element(By.CSS_SELECTOR, '.line-chart__chart')
 
-  paceChartElement.screenshot('pacechart.png')
+    driver.execute_script(f"arguments[0].style['width'] = '{chartWidth}px';", paceChartElement)
+
+    paceChartElement.screenshot('pacechart.png')
+  except Exception as e:
+    print(f"An unexpected error occurred: {e}")
 
   # ===
 
@@ -209,118 +224,138 @@ for listIndex in range(len(urls)):
   driver.get(pausingPageUrl)
   time.sleep(waitForPageLoadSeconds)
 
+  try:
+    pausingChartApexChartCanvasElement = driver.find_element(By.CSS_SELECTOR, 'div[id^="apexchart"]')
+    chartCanvasWidth = int(pausingChartApexChartCanvasElement.size['width'])
+    print(chartCanvasWidth)
+    chartWidth = (chartCanvasWidth * 2) + 500
 
-  pausingChartApexChartCanvasElement = driver.find_element(By.CSS_SELECTOR, 'div[id^="apexchart"]')
-  chartCanvasWidth = int(pausingChartApexChartCanvasElement.size['width'])
-  print(chartCanvasWidth)
-  chartWidth = (chartCanvasWidth * 2) + 500
+    pausingChartElement = driver.find_element(By.CSS_SELECTOR, '.column-bar__chart')
 
-  pausingChartElement = driver.find_element(By.CSS_SELECTOR, '.column-bar__chart')
+    driver.execute_script(f"arguments[0].style['width'] = '{chartWidth}px';", pausingChartElement)
 
-  driver.execute_script(f"arguments[0].style['width'] = '{chartWidth}px';", pausingChartElement)
+    pausingChartElement.screenshot('pausingchart.png')
+  except Exception as e:
+    print(f"An unexpected error occurred: {e}")
 
-  pausingChartElement.screenshot('pausingchart.png')
 
-  pausingTranscriptElementSelector = '.transcript__list'
-  pausingTranscriptElement = driver.find_element(By.CSS_SELECTOR, f'{pausingTranscriptElementSelector}')
 
-  driver.execute_script("arguments[0].style.overflow = 'visible';", pausingTranscriptElement)
-  driver.execute_script("arguments[0].style['max-height'] = '10000px';", pausingTranscriptElement)
+  try:
+    pausingTranscriptElementSelector = '.transcript__list'
+    pausingTranscriptElement = driver.find_element(By.CSS_SELECTOR, f'{pausingTranscriptElementSelector}')
 
-  pausingTranscriptItemsElements = pausingTranscriptElement.find_elements(By.CSS_SELECTOR, 'div')
+    driver.execute_script("arguments[0].style.overflow = 'visible';", pausingTranscriptElement)
+    driver.execute_script("arguments[0].style['max-height'] = '10000px';", pausingTranscriptElement)
 
-  print(pausingTranscriptItemsElements, ' ' , len(pausingTranscriptItemsElements))
-
-  while (len(pausingTranscriptItemsElements) < minimumTranscriptItemsLength):
-    time.sleep(1)
     pausingTranscriptItemsElements = pausingTranscriptElement.find_elements(By.CSS_SELECTOR, 'div')
 
-  pausingTranscriptItemsElements = pausingTranscriptElement.find_elements(By.CSS_SELECTOR, 'div')
+    print(pausingTranscriptItemsElements, ' ' , len(pausingTranscriptItemsElements))
 
-  pausingTranscriptElement.screenshot('pausingTranscript.png')
+    while (len(pausingTranscriptItemsElements) < minimumTranscriptItemsLength):
+      time.sleep(1)
+      pausingTranscriptItemsElements = pausingTranscriptElement.find_elements(By.CSS_SELECTOR, 'div')
+
+    pausingTranscriptItemsElements = pausingTranscriptElement.find_elements(By.CSS_SELECTOR, 'div')
+
+    pausingTranscriptElement.screenshot('pausingTranscript.png')
+  except Exception as e:
+    print(f"An unexpected error occurred: {e}")
 
   # ===
 
-  hesitationsPageUrl = f'{recordingItemUrl}/fluency/hesitations'
+  try:
+    hesitationsPageUrl = f'{recordingItemUrl}/fluency/hesitations'
 
-  driver.get(hesitationsPageUrl)
-  time.sleep(waitForPageLoadSeconds)
+    driver.get(hesitationsPageUrl)
+    time.sleep(waitForPageLoadSeconds)
 
-  hesitationsChartApexChartCanvasElement = driver.find_element(By.CSS_SELECTOR, 'div[id^="apexchart"]')
-  chartCanvasWidth = int(hesitationsChartApexChartCanvasElement.size['width'])
-  print(chartCanvasWidth)
-  chartWidth = chartCanvasWidth
+    hesitationsChartApexChartCanvasElement = driver.find_element(By.CSS_SELECTOR, 'div[id^="apexchart"]')
+    chartCanvasWidth = int(hesitationsChartApexChartCanvasElement.size['width'])
+    print(chartCanvasWidth)
+    chartWidth = chartCanvasWidth
 
-  hesitationsChartElement = driver.find_element(By.CSS_SELECTOR, '.hesitations-chart__filler')
+    hesitationsChartElement = driver.find_element(By.CSS_SELECTOR, '.hesitations-chart__filler')
 
-  driver.execute_script(f"arguments[0].style['width'] = '{chartWidth}px';", hesitationsChartElement)
+    driver.execute_script(f"arguments[0].style['width'] = '{chartWidth}px';", hesitationsChartElement)
 
-  hesitationsChartElement.screenshot('hesitationschart.png')
+    hesitationsChartElement.screenshot('hesitationschart.png')
+  except Exception as e:
+    print(f"An unexpected error occurred: {e}")
 
-  hesitationsTranscriptElementSelector = '.transcript__list'
-  hesitationsTranscriptElement = driver.find_element(By.CSS_SELECTOR, f'{hesitationsTranscriptElementSelector}')
 
-  driver.execute_script("arguments[0].style.overflow = 'visible';", hesitationsTranscriptElement)
-  driver.execute_script("arguments[0].style['max-height'] = '10000px';", hesitationsTranscriptElement)
+  try:
+    hesitationsTranscriptElementSelector = '.transcript__list'
+    hesitationsTranscriptElement = driver.find_element(By.CSS_SELECTOR, f'{hesitationsTranscriptElementSelector}')
 
-  hesitationsTranscriptItemsElements = hesitationsTranscriptElement.find_elements(By.CSS_SELECTOR, 'div')
+    driver.execute_script("arguments[0].style.overflow = 'visible';", hesitationsTranscriptElement)
+    driver.execute_script("arguments[0].style['max-height'] = '10000px';", hesitationsTranscriptElement)
 
-  print(hesitationsTranscriptItemsElements, ' ' , len(hesitationsTranscriptItemsElements))
-
-  while (len(hesitationsTranscriptItemsElements) < minimumTranscriptItemsLength):
-    time.sleep(1)
     hesitationsTranscriptItemsElements = hesitationsTranscriptElement.find_elements(By.CSS_SELECTOR, 'div')
 
-  hesitationsTranscriptItemsElements = hesitationsTranscriptElement.find_elements(By.CSS_SELECTOR, 'div')
+    print(hesitationsTranscriptItemsElements, ' ' , len(hesitationsTranscriptItemsElements))
 
-  hesitationsTranscriptElement.screenshot('hesitationsTranscript.png')
-
-
-  # ===
-
-  grammarPageUrl = f'{recordingItemUrl}/grammar'
-
-  driver.get(grammarPageUrl)
-  time.sleep(waitForPageLoadSeconds)
-
-
-  accordionGrammarRangeElement = driver.find_element(By.CSS_SELECTOR, '.grammar-range__accordion')
-  accordionGrammarRangeElement.click()
-
-  time.sleep(1)
-
-  accordionGrammarRangeElement.screenshot('grammar-range.png')
-
-  accordionYourTopGrammarErrorsElement = driver.find_element(By.CSS_SELECTOR, '.grammar-top-errors__accordion')
-  accordionYourTopGrammarErrorsElement.click()
-
-
-  # Find the parent element using the CSS selector
-  sub_categories_parent_element = driver.find_element(By.CSS_SELECTOR, ".grammar-top-errors__accordion > dl:nth-child(1) > dd:nth-child(2)")
-    
-  # Find all direct children of the parent element
-  children = sub_categories_parent_element.find_elements(By.XPATH, "./*")
-    
-  # Click on each child element
-  for child in children:
-      # Click the element
-      child.click()
-      
-      # Wait briefly to observe the action (if needed)
+    while (len(hesitationsTranscriptItemsElements) < minimumTranscriptItemsLength):
       time.sleep(1)
-  
-  accordionYourTopGrammarErrorsElement.screenshot('your-top-grammar-errors.png')
+      hesitationsTranscriptItemsElements = hesitationsTranscriptElement.find_elements(By.CSS_SELECTOR, 'div')
+
+    hesitationsTranscriptItemsElements = hesitationsTranscriptElement.find_elements(By.CSS_SELECTOR, 'div')
+
+    hesitationsTranscriptElement.screenshot('hesitationsTranscript.png')
+  except Exception as e:
+    print(f"An unexpected error occurred: {e}")
 
 
   # ===
 
-  vocabularyPageUrl = f'{recordingItemUrl}/vocabulary'
+  try:
+    grammarPageUrl = f'{recordingItemUrl}/grammar'
 
-  driver.get(vocabularyPageUrl)
-  time.sleep(waitForPageLoadSeconds)
+    driver.get(grammarPageUrl)
+    time.sleep(waitForPageLoadSeconds)
 
-  vocabularyElement = driver.find_element(By.CSS_SELECTOR, '.vocabulary__flexible')
-  vocabularyElement.screenshot('vocabulary.png')
+
+    accordionGrammarRangeElement = driver.find_element(By.CSS_SELECTOR, '.grammar-range__accordion')
+    accordionGrammarRangeElement.click()
+
+    time.sleep(1)
+
+    accordionGrammarRangeElement.screenshot('grammar-range.png')
+
+    accordionYourTopGrammarErrorsElement = driver.find_element(By.CSS_SELECTOR, '.grammar-top-errors__accordion')
+    accordionYourTopGrammarErrorsElement.click()
+
+
+    # Find the parent element using the CSS selector
+    sub_categories_parent_element = driver.find_element(By.CSS_SELECTOR, ".grammar-top-errors__accordion > dl:nth-child(1) > dd:nth-child(2)")
+      
+    # Find all direct children of the parent element
+    children = sub_categories_parent_element.find_elements(By.XPATH, "./*")
+      
+    # Click on each child element
+    for child in children:
+        # Click the element
+        child.click()
+        
+        # Wait briefly to observe the action (if needed)
+        time.sleep(1)
+    
+    accordionYourTopGrammarErrorsElement.screenshot('your-top-grammar-errors.png')
+  except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+
+
+  # ===
+
+  try:
+    vocabularyPageUrl = f'{recordingItemUrl}/vocabulary'
+
+    driver.get(vocabularyPageUrl)
+    time.sleep(waitForPageLoadSeconds)
+
+    vocabularyElement = driver.find_element(By.CSS_SELECTOR, '.vocabulary__flexible')
+    vocabularyElement.screenshot('vocabulary.png')
+  except Exception as e:
+    print(f"An unexpected error occurred: {e}")
 
   recordingTitleTextElement = driver.find_element(By.CSS_SELECTOR, '.recording-title__text')
   recordingTitleRaw = recordingTitleTextElement.text
