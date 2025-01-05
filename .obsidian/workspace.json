@@ -1,0 +1,192 @@
+{
+  "main": {
+    "id": "078b8b5169f9d5fd",
+    "type": "split",
+    "children": [
+      {
+        "id": "4690813b155105a0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fece37aa1dff3042",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "bao-s1-mp4/bao-s1-mp4.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "bao-s1-mp4"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e8d692606702c17d",
+    "type": "split",
+    "children": [
+      {
+        "id": "a1db755d246a4781",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fa9b6cc92b246227",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "d660faea9cb76ffe",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d2ae4c56758acf98",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "3f89d97554485205",
+    "type": "split",
+    "children": [
+      {
+        "id": "7b99fa158da51a3b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a0e63310cde792d8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "bao-s1-mp4/bao-s1-mp4.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for bao-s1-mp4"
+            }
+          },
+          {
+            "id": "10b6fedb468f385e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "bao-s1-mp4/bao-s1-mp4.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from bao-s1-mp4"
+            }
+          },
+          {
+            "id": "724b74cdf39c0772",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "edd8485f93ee62fd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "bao-s1-mp4/bao-s1-mp4.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of bao-s1-mp4"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "fece37aa1dff3042",
+  "lastOpenFiles": [
+    "quynh-anh-s2-a-thing-you-cant-live-without-mp3/quynh-anh-s2-a-thing-you-cant-live-without-mp3.md",
+    "cam-anh-s1-mp4/cam-anh-s1-mp4.md",
+    "cam-anh-s1-mp4/vocabulary.png",
+    "cam-anh-s1-mp4/your-top-grammar-errors.png",
+    "cam-anh-s1-mp4/grammar-range.png",
+    "cam-anh-s1-mp4/hesitationsTranscript.png",
+    "cam-anh-s1-mp4/hesitationschart.png",
+    "cam-anh-s1-mp4/transcript.png",
+    "cam-anh-s1-mp4/pitchchart.png",
+    "cam-anh-s1-mp4/pausingchart.png",
+    "cam-anh-s1-mp4/pausingTranscript.png",
+    "cam-anh-s1-mp4/pacechart.png",
+    "cam-anh-s1-mp4",
+    "bao-s1-mp4/bao-s1-mp4.md",
+    "bao-s1-mp4",
+    "thu-s2-mp4/thu-s2-mp4.md",
+    "thu-s2-mp4",
+    "cong-s2-mp4/cong-s2-mp4.md",
+    "cong-s2-mp4",
+    "kim-s1-mp4/kim-s1-mp4.md",
+    "kim-s1-mp4",
+    "duc-s1-mp4/duc-s1-mp4.md",
+    "duc-s1-mp4"
+  ]
+}

@@ -104,7 +104,7 @@ urls = []
 
 maxRecordingCountPerPage = 10
 
-for pageIndex in [1, 2]:
+for pageIndex in [1]:
   for recordingItemIndex in range (1, 11):
     currentRecordingItem = driver.find_element(By.CSS_SELECTOR, f'li.recording-item:nth-child({recordingItemIndex})')
 
@@ -364,7 +364,7 @@ for listIndex in range(len(urls)):
   slugified = slugify(recordingTitleRaw)
   print(slugified)
 
-  create_directory_and_copy_files(slugified, '.', '.')
+  create_directory_and_copy_files(slugified, './output', '.')
 
 
 
